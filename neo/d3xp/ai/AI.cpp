@@ -692,7 +692,7 @@ idEntity* idAI::FindEnemyInCombatNodes( void )
 			}
 
 			node = static_cast<idCombatNode*>( targetEnt );
-			if( !node->IsDisabled() && node->EntityInView( actor, actor->GetPhysics()->GetOrigin() ) )
+			if( !node->IsDisabled() && node->EntityInView( actor, actor->GetPhysics()->GetOrigin() ) && actor->team != team )
 			{
 				return actor;
 			}
@@ -1626,6 +1626,10 @@ int idAI::ReactionTo( const idEntity* ent )
 		}
 		return ATTACK_ON_SIGHT | ATTACK_ON_DAMAGE | ATTACK_ON_ACTIVATE;
 	}
+	if(actor->team == team)
+    {
+        return ATTACK_IGNORE;
+    }
 
 	// monsters will fight when attacked by lower ranked monsters.  rank 0 never fights back.
 	if( rank && ( actor->rank < rank ) )
