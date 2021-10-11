@@ -39,6 +39,9 @@ If you have questions concerning this license or the applicable additional terms
 #include "Font.h"
 #include "Framebuffer.h"
 
+#include "MegaTexture.h"
+#include "VirtualTexture.h"
+
 // RB: define this to use the id Tech 4.5 UI interface for ImGui instead of OpenGL or Vulkan
 // this allows to have the com_showFPS stats in screenshots
 #define IMGUI_BFGUI 1
@@ -125,6 +128,7 @@ struct drawSurf_t
 	drawSurf_t** 			linkChain;			// defer linking to lights to a serial section to avoid a mutex
 	idScreenRect			scissorRect;		// for scissor clipping, local inside renderView viewport
 	int						renderZFail;
+	bool					forceVirtualTextureHighQuality;
 };
 
 // areas have references to hold all the lights and entities in them

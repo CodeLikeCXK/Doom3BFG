@@ -821,6 +821,9 @@ file(GLOB COMPILER_AAS_SOURCES tools/compilers/aas/*.cpp)
 file(GLOB COMPILER_DMAP_INCLUDES tools/compilers/dmap/*.h)
 file(GLOB COMPILER_DMAP_SOURCES tools/compilers/dmap/*.cpp)
 
+file(GLOB COMPILER_MEGAGEN_INCLUDES tools/compilers/megagen/*.h)
+file(GLOB COMPILER_MEGAGEN_SOURCES tools/compilers/megagen/*.cpp)
+
 file(GLOB COMPILER_RENDERBUMP_INCLUDES tools/compilers/renderbump/*.h)
 file(GLOB COMPILER_RENDERBUMP_SOURCES tools/compilers/renderbump/*.cpp)
 
@@ -1224,6 +1227,9 @@ source_group("tools\\compilers\\aas" FILES ${COMPILER_AAS_SOURCES})
 source_group("tools\\compilers\\dmap" FILES ${COMPILER_DMAP_INCLUDES})
 source_group("tools\\compilers\\dmap" FILES ${COMPILER_DMAP_SOURCES})
 
+source_group("tools\\compilers\\megagen" FILES ${COMPILER_MEGAGEN_INCLUDES})
+source_group("tools\\compilers\\megagen" FILES ${COMPILER_MEGAGEN_SOURCES})
+
 source_group("tools\\compilers\\renderbump" FILES ${COMPILER_RENDERBUMP_INCLUDES})
 source_group("tools\\compilers\\renderbump" FILES ${COMPILER_RENDERBUMP_SOURCES})
 
@@ -1326,6 +1332,7 @@ set(RBDOOM3_INCLUDES
 			${COMPILER_INCLUDES}
 			${COMPILER_AAS_INCLUDES} ${COMPILER_AAS_SOURCES}
 			${COMPILER_DMAP_INCLUDES} ${COMPILER_DMAP_SOURCES}
+		    ${COMPILER_MEGAGEN_INCLUDES} ${COMPILER_MEGAGEN_SOURCES}
 			
 			${EDITOR_MAYAIMPORT_INCLUDES} ${EDITOR_MAYAIMPORT_SOURCES}
 			
@@ -1376,7 +1383,9 @@ set(RBDOOM3_SOURCES
 			
 			${COMPILER_AAS_SOURCES}
 			${COMPILER_DMAP_SOURCES}
-			
+		    ${COMPILER_MEGAGEN_SOURCES}
+
+
 			${EDITOR_MAYAIMPORT_SOURCES}
 			
 			${IMGUI_EDITOR_SOURCES}
@@ -1624,7 +1633,7 @@ if(MSVC)
 		iphlpapi
 		winmm
 		wsock32.lib
-		../neo/libs/assimp/lib/assimp-vc142-mt
+		../libs/assimp/lib/assimp-vc142-mt
 		${Vulkan_LIBRARIES}
 		${OpenGL_LIBRARIES}
 		${OpenAL_LIBRARIES}

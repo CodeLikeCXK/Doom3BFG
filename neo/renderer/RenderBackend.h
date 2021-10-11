@@ -33,6 +33,7 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "RenderLog.h"
 
+
 bool			GL_CheckErrors_( const char* filename, int line );
 #if 1 // !defined(RETAIL)
 	#define         GL_CheckErrors()	GL_CheckErrors_(__FILE__, __LINE__)
